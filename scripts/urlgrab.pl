@@ -15,7 +15,7 @@ $VERSION = "0.2";
 my $lasturl;
 
 # Change the file path below if needed
-my $file = "$ENV{HOME}/.urllog";
+my $file = "$ENV{HOME}/.irssi/urls.log";
 
 sub url_public{
    my($server,$text,$nick,$hostmask,$channel)=@_;
@@ -28,7 +28,7 @@ sub url_private{
    my $url = find_url($text);
    url_log($nick, $server->{nick}, $url) if defined $url;
 }
-
+# @TODO: netscape-remote is unknown under Debian > 8+
 sub url_cmd{
    if(!$lasturl){
 	  Irssi::print("No url captured yet");
